@@ -26,17 +26,3 @@ const getProuductCard = (
 const renderProducts = (products) => {
     productContainer.innerHTML = products.map((product) => getProuductCard(product.name, product.price, product.img, product.id, product.description)).join('');
 }
-
-const fetchProducts = async () => {
-    const response = await fetch(`${backendUrl}/products`);
-    const { products } = await response.json();
-    renderProducts(products);
-}
-
-fetchProducts();
-
-function printme(msg) {
-    console.log(msg);
-}
-
-window.printme = printme;
